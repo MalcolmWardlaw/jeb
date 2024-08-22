@@ -306,7 +306,8 @@ program define jeb
    file write `handle' "       .         .         .         .      .662      .027         .       ." _n
    file write `handle' "       .         .         .         .      .662      .027         .       ." _n
    file close `handle'
-   infile using "`output'", clear
-   
+   qui infile using "`output'", clear
+
+   di as result "Jeb!"
    twoway (area body_y body_x, fcolor("190 212 255") lwidth(none)) (area rhand_y rhand_x, fcolor("234 192 134") lwidth(none)) (area lhand_y lhand_x, fcolor("234 192 134") lwidth(none)) (area head_y head_x, fcolor("234 192 134") lwidth(none)) , legend(off)  yscale(off)  xscale(off) ylabel(, nogrid) xlabel(, nogrid) title("JEB!",  size(huge) color(cranberry) position(1)  bexpand)  aspectratio(1)  ysize(4)  xsize(4)
 end
