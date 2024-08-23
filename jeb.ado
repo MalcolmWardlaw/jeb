@@ -309,6 +309,6 @@ program define jeb
    qui infile using "`output'", clear
 
    di as result "Jeb!"
-   twoway (area body_y body_x, fcolor("190 212 255") lwidth(none)) (area rhand_y rhand_x, fcolor("234 192 134") lwidth(none)) (area lhand_y lhand_x, fcolor("234 192 134") lwidth(none)) (area head_y head_x, fcolor("234 192 134") lwidth(none)) , legend(off)  yscale(off)  xscale(off) ylabel(, nogrid) xlabel(, nogrid) title("{fontface Baskerville Bold:Jeb!} ",  size("20rs") margin(none) color(cranberry)  position(2) ring(0))  aspectratio(1)  ysize(4)  xsize(4) scheme(s1color) plotregion(lwidth(none))
+   twoway (area body_y body_x, fcolor("190 212 255") lwidth(none)) (area rhand_y rhand_x, fcolor("234 192 134") lwidth(none)) (area lhand_y lhand_x, fcolor("234 192 134") lwidth(none)) (area head_y head_x, fcolor("234 192 134") lwidth(none)) , legend(off)  yscale(off)  xscale(off) ylabel(, nogrid) xlabel(, nogrid) title("{fontface Baskerville Bold:Jeb!} ",  size("20rs") color(cranberry)  position(2) ring(0))  aspectratio(1)  ysize(4)  xsize(4) scheme(s1color) plotregion(lwidth(none))
 
 end
