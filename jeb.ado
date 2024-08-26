@@ -1,6 +1,17 @@
 capture program drop jeb
 program define jeb
-   syntax [,map(string)]
+   syntax [,map(string) notjeb1(string) notjeb2(string)]
+
+   // Define not Jeb
+   if mi("`notjeb1'") {
+      local notjeb1 "Not Jeb"
+   }
+
+   if mi("`notjeb2'") {
+      local notjeb2 "Not Jeb"
+   }
+
+   // Define Jeb
 
    tempname handle
    tempfile output
@@ -67,6 +78,6 @@ program define jeb
    local xsize = `ysize'/`aspect'
    
    di as result "Jeb!"
-   graph twoway (area _Y _X if 0, nodropbase cmissing(n) fc("red") fi(100) lc("black") lw("thin") lp("solid") la("center")) (area _Y _X if 0, nodropbase cmissing(n) fc("blue") fi(100) lc("black") lw("thin") lp("solid") la("center")) (area _Y _X if `partnum' == 0, nodropbase cmissing(n) fc("yellow") fi(100) lc("black") lw("thin") lp("solid") la("center")) (area _Y _X if `partnum' == 1, nodropbase cmissing(n) fc("234 192 134") fi(100) lc("black") lw("thin") lp("solid") la("center") leg(off)) (area _Y _X if `partnum' == 2, nodropbase cmissing(n) fc("190 212 255") fi(100) lc("black") lw("thin") lp("solid") la("center") )  , ysize(`ysize') xsize(`xsize') aspect(`aspect') yscale(r(`ymin' `ymax') off) xscale(r(`xmin' `xmax') off) ylabel(`ymin' `ymax') xlabel(`xmin' `xmax') ytitle("") xtitle("")  plotregion(margin(zero) style(none)) graphregion(margin(zero) style(none)) scheme(s1mono) title("{fontface Baskerville Bold:Jeb!} ",  size(*3.5) color(cranberry)  position(2) ring(0)) legend(on order(1 "{stMono:Not Jeb}" 2 "{stMono:Not Jeb}" 3 "{fontface Baskerville Bold:Jeb!}")   size(*1.2)  col(1) position(4) ring(0) region(lstyle(none) fcolor(none)))
+   graph twoway (area _Y _X if 0, nodropbase cmissing(n) fc("red") fi(100) lc("black") lw("thin") lp("solid") la("center")) (area _Y _X if 0, nodropbase cmissing(n) fc("blue") fi(100) lc("black") lw("thin") lp("solid") la("center")) (area _Y _X if `partnum' == 0, nodropbase cmissing(n) fc("yellow") fi(100) lc("black") lw("thin") lp("solid") la("center")) (area _Y _X if `partnum' == 1, nodropbase cmissing(n) fc("234 192 134") fi(100) lc("black") lw("thin") lp("solid") la("center") leg(off)) (area _Y _X if `partnum' == 2, nodropbase cmissing(n) fc("190 212 255") fi(100) lc("black") lw("thin") lp("solid") la("center") )  , ysize(`ysize') xsize(`xsize') aspect(`aspect') yscale(r(`ymin' `ymax') off) xscale(r(`xmin' `xmax') off) ylabel(`ymin' `ymax') xlabel(`xmin' `xmax') ytitle("") xtitle("")  plotregion(margin(zero) style(none)) graphregion(margin(zero) style(none)) scheme(s1mono) title("{fontface Baskerville Bold:Jeb!} ",  size(*3.5) color(cranberry)  position(2) ring(0)) legend(on order(1 "{stMono:`notjeb1'}" 2 "{stMono:`notjeb2'}" 3 "{fontface Baskerville Bold:Jeb!}")   size(*1.2)  col(1) position(4) ring(0) region(lstyle(none) fcolor(none)))
 
 end
