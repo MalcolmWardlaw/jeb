@@ -1,4 +1,4 @@
-
+capture program drop jeb
 program define jeb
    syntax [,map(string)]
 
