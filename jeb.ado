@@ -30,8 +30,13 @@ program define jeb
    capture findfile "`map'"
    if _rc == 0 {
       local mapfile = r(fn)
-
       append using `mapfile'
+   }
+   else {
+      capture append using "https://malcolmwardlaw.github.io/jeb/usa_map" 
+   }
+
+   if _rc ==0 {
       qui replace jeb = 0 if mi(jeb)
       qui sum _X if _n > `last_jeb_obs'
       local xmin = r(min) - abs(r(min))*.01
